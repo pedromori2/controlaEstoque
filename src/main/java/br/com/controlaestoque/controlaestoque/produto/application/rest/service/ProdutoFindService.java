@@ -22,7 +22,7 @@ public class ProdutoFindService {
     public List<ProdutoResponse> findAll() {
         List<Produto> produtos = repository.findAll();
 
-        return produtos.stream().map(produto -> mapper.toProdutoResponse(produto)).collect(toList());
+        return produtos.stream().map(mapper::toProdutoResponse).collect(toList());
     }
 
     public ProdutoResponse findById(Integer id) {
