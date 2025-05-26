@@ -3,6 +3,7 @@ package br.com.controlaestoque.controlaestoque.produto.application.rest;
 import br.com.controlaestoque.controlaestoque.produto.application.rest.dto.request.ProdutoRequest;
 import br.com.controlaestoque.controlaestoque.produto.application.rest.dto.response.ProdutoResponse;
 import br.com.controlaestoque.controlaestoque.produto.application.rest.service.ProdutoMediator;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProdutoResponse createProduto(@RequestBody ProdutoRequest request) {
+    public ProdutoResponse createProduto(@RequestBody @Valid ProdutoRequest request) {
         return mediator.create(request);
     }
 
